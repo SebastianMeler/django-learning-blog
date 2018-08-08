@@ -29,4 +29,5 @@ urlpatterns = [
     # path('', include('blog.urls')),
     path('blog/', include('blog.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('account/', include('account.urls')),
 ]
