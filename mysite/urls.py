@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
+from django.contrib.auth import views as auth_views
+
 
 sitemaps = {
     'posts': PostSitemap,
@@ -30,4 +32,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('account/', include('account.urls')),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
 ]
